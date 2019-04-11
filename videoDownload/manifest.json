@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "copy source src",
+  "version": "1.0.0",
+  "description": "copy source src",
+  "icons": {
+    "32": "./imgs/icon.png"
+  },
+  "content_scripts":[
+    {
+      "matches": ["file://*"],
+      "js":["./index.js"]
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "clipboardRead"
+  ],
+  "background":{
+    "page": "./background.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://pstatic.xunlei.com/; object-src 'self'"
+}
