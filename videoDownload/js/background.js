@@ -15,7 +15,10 @@ chrome.contextMenus.create({
       chrome.tabs.sendMessage(tabs[0].id, { greeting: "get" }, function (response) {
         let thunderPath = ThunderEncode(response)
         copy(thunderPath)
-        location.href = thunderPath
+        chrome.tabs.update(tabs[0].id, {
+          url: thunderPath,
+          selected: true
+        })
       })
     })
   }
